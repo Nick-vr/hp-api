@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hp-api", "hp-api\hp-api.csproj", "{B793B86F-545F-4769-A3EE-AA1827E09C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hp-api.data", "hp-api.data\hp-api.data.csproj", "{928CB6C7-3700-4F24-BE75-8077DD15F66E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hp-api.business", "hp-api.business\hp-api.business.csproj", "{8A12C36D-4277-4654-BDCF-211A9D9EF2F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B793B86F-545F-4769-A3EE-AA1827E09C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B793B86F-545F-4769-A3EE-AA1827E09C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B793B86F-545F-4769-A3EE-AA1827E09C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B793B86F-545F-4769-A3EE-AA1827E09C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{928CB6C7-3700-4F24-BE75-8077DD15F66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{928CB6C7-3700-4F24-BE75-8077DD15F66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{928CB6C7-3700-4F24-BE75-8077DD15F66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{928CB6C7-3700-4F24-BE75-8077DD15F66E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A12C36D-4277-4654-BDCF-211A9D9EF2F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A12C36D-4277-4654-BDCF-211A9D9EF2F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A12C36D-4277-4654-BDCF-211A9D9EF2F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A12C36D-4277-4654-BDCF-211A9D9EF2F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
