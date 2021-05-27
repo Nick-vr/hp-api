@@ -1,8 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <RootNamespace>hp_api.data</RootNamespace>
-    </PropertyGroup>
+      <UserSecretsId>81dcd7b5-e0a8-4fe9-b5a9-715e1027f27e</UserSecretsId>
+  </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dapper" Version="2.0.90" />
+      <PackageReference Include="Dapper.Contrib" Version="2.0.78" />
+      <PackageReference Include="Npgsql" Version="5.0.5" />
+    </ItemGroup>
 
 </Project>
