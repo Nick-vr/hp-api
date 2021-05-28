@@ -11,13 +11,12 @@ namespace hp_api.data.Repositories
 {
     public class GenericRepo<T> : IGenericRepo<T> where T : BaseModel
     {
-        //private IDbConfig _dbConfig;
         private string _connectionString;
         private IDbConnection _dbConnection
         {
             get
             {
-                Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+                DefaultTypeMap.MatchNamesWithUnderscores = true;
                 return new NpgsqlConnection(_connectionString);
             }
         }
