@@ -6,7 +6,6 @@ using hp_api.data.Models;
 using Npgsql;
 using Dapper;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.UserSecrets;
 
 namespace hp_api.data.Repositories
 {
@@ -23,10 +22,10 @@ namespace hp_api.data.Repositories
             }
         }
         
-        // public GenericRepo(DbConfig dbConfig)
-        // {
-        //     //_connectionString = dbConfig.DbConnString;
-        // }
+        public GenericRepo(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("HPDBConnectionString");
+        }
         
         public async Task<IEnumerable<T>> GetAllAsync(string sql)
         {

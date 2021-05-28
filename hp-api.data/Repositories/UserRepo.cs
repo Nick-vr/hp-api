@@ -2,15 +2,16 @@
 using System.Threading.Tasks;
 using hp_api.data.Models;
 using hp_api.data.Schemas;
+using Microsoft.Extensions.Configuration;
 
 namespace hp_api.data.Repositories
 {
     public class UserRepo : GenericRepo<User>, IUserRepo
     {
-        // public UserRepo(IDbConfig dbConfig)
-        //     : base(dbConfig)
-        // {
-        // }
+        public UserRepo(IConfiguration configuration)
+            : base(configuration)
+        {
+        }
 
         public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
