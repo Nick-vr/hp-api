@@ -21,7 +21,6 @@ namespace hp_api
 {
     public class Startup
     {
-        private string _dbConnString = null;
         public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
@@ -37,8 +36,6 @@ namespace hp_api
             
             services.AddScoped<IUserRepo, UserRepo>();
             services.AddScoped<IUserService, UserService>();
-            
-            _dbConnString = Configuration["HPDBConnectionString"];
 
             // var dbConfig = new DbConfig();
             // services.AddSingleton(dbConfig);
