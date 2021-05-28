@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using hp_api.business.Services;
+using hp_api.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,14 +30,15 @@ namespace hp_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // var config = new AppConfig();
-            // config.DbConnectionString = Configuration["DbConnString"];
-            // services.AddSingleton<AppConfig>(config);
-
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "hp_api", Version = "v1"}); });
             services.AddCors();
-           
+            
+            services.AddScoped<IUserRepo, UserRepo>();
+            services.AddScoped<IUserService, UserService>();
+
+            var dbConfig = new DbConfig();
+            services.AddSingleton(dbConfig);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

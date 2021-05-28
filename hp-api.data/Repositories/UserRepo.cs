@@ -1,30 +1,27 @@
-﻿namespace hp_api.data.Repositories
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using hp_api.data.Models;
+using hp_api.data.Schemas;
+
+namespace hp_api.data.Repositories
 {
-    public class UserRepo
+    public class UserRepo : GenericRepo<User>, IUserRepo
     {
-        public UserRepo()
+        // public UserRepo(IDbConfig dbConfig)
+        //     : base(dbConfig)
+        // {
+        // }
+
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
-            
-            // public async Task<IEnumerable<User>> FindAllAsync()
-            // {
-            //     var sql = $@"SELECT * FROM {UserSchema.Table}";
-            //     using var dbConnection = _dbConnection;
-            //     return await dbConnection.QueryAsync<User>(sql);
-            // }
-            //
-            // public async Task<User> FindByIdAsync(int id)
-            // {
-            //     var sql = $@"SELECT * FROM {UserSchema.Table} WHERE {UserSchema.Columns.Id} = @{nameof(id)}";
-            //     using var dbConnection = _dbConnection;
-            //     return await dbConnection.QueryFirstOrDefaultAsync<User>(sql, new { id });
-            // }
-            //
-            // public async Task<User> FindByUserNameAsync(string username)
-            // {
-            //     var sql = $@"SELECT * FROM  {UserSchema.Table} WHERE {UserSchema.Columns.UserName} = @{nameof(username)}";
-            //     using var dbConnection = _dbConnection;
-            //     return await dbConnection.QuerySingleOrDefaultAsync<User>(sql, new { username });
-            // }
+            var sql = $@"SELECT * FROM {UserSchema.Table}";
+            return await GetAllAsync(sql);
+        }
+
+        public async Task<User> GetUserByIdAsync(int id)
+        {
+            var sql = $@"SELECT * FROM {UserSchema.Table} WHERE {UserSchema.Columns.Id} = @{nameof(id)}";
+            return await GetByIdAsync(id, sql);
         }
     }
 }

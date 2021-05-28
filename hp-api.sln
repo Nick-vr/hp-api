@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hp-api.data", "hp-api.data\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hp-api.business", "hp-api.business\hp-api.business.csproj", "{8A12C36D-4277-4654-BDCF-211A9D9EF2F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hp-api.tests", "hp-api.tests\hp-api.tests.csproj", "{5A03F2B2-3DC5-4E8F-8E17-5446AD52FA1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{8A12C36D-4277-4654-BDCF-211A9D9EF2F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A12C36D-4277-4654-BDCF-211A9D9EF2F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A12C36D-4277-4654-BDCF-211A9D9EF2F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A03F2B2-3DC5-4E8F-8E17-5446AD52FA1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A03F2B2-3DC5-4E8F-8E17-5446AD52FA1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A03F2B2-3DC5-4E8F-8E17-5446AD52FA1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A03F2B2-3DC5-4E8F-8E17-5446AD52FA1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using hp_api.business.Services;
+using hp_api.data.Models;
+using hp_api.data.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -10,31 +13,23 @@ namespace hp_api.Controllers
         [Route("api/[controller]")]
         public class UserController : ControllerBase
         {
-            // private readonly IUserRepo _userRepo;
-            //
-            // public UserController(IConfiguration configuration)
-            // {
-            //     _userRepo = new UserRepo(configuration);
-            // }
-            // [HttpGet]
-            // public async Task<IEnumerable<User>> GetAllUsersAsync()
-            // {
-            //     return await _userRepo.FindAllAsync();
-            // }
-            //
-            // [HttpGet("{id}")]
-            // // [Route("GetUserById/{id:int}")]
-            // public async Task<User> GetUserByIdAsync(int id)
-            // {
-            //     return await _userRepo.FindByIdAsync(id);
-            // }
-            //
-            // [HttpGet("name/{username}")]
-            // //[Route("name/{username}")]
-            // public async Task<User> GetUserByUserNameAsync(string username)
-            // {
-            //     return await _userRepo.FindByUserNameAsync(username);
-            // }
+            private readonly IUserService  _userService;
+            
+            public UserController(IUserService userService)
+            {
+                _userService = userService;
+            }
+            [HttpGet]
+            public async Task<IEnumerable<User>> GetAllUsersAsync()
+            {
+                return await _userService.GetAllUsersAsync();
+            }
+            
+            [HttpGet("{id:int}")]
+            public async Task<User> GetUserByIdAsync(int id)
+            {
+                return await _userService.GetUserByIdAsync(id);
+            }
         }
     
 }
