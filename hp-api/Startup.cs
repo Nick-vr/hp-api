@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using hp_api.business.Services;
@@ -15,6 +16,7 @@ using Microsoft.OpenApi.Models;
 using hp_api.data;
 using hp_api.data.Models;
 using hp_api.data.Repositories;
+using Npgsql;
 
 namespace hp_api
 {
@@ -32,6 +34,13 @@ namespace hp_api
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "hp_api", Version = "v1"}); });
             services.AddCors();
+            
+            var connectionString = Configuration.GetConnectionString("HPDBConnectionString");
+            services.AddTransient<IDbConnection>(_ =>
+            {
+                Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+                return new NpgsqlConnection(connectionString);
+            });
             
             services.AddScoped<IUserRepo, UserRepo>();
             services.AddScoped<IUserService, UserService>();

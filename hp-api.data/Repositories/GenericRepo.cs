@@ -3,27 +3,16 @@ using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using hp_api.data.Models;
-using Npgsql;
 using Dapper;
-using Microsoft.Extensions.Configuration;
 
 namespace hp_api.data.Repositories
 {
     public class GenericRepo<T> : IGenericRepo<T> where T : BaseModel
     {
-        private string _connectionString;
-        private IDbConnection _dbConnection
+        private readonly IDbConnection _dbConnection;
+        public GenericRepo(IDbConnection connection)
         {
-            get
-            {
-                DefaultTypeMap.MatchNamesWithUnderscores = true;
-                return new NpgsqlConnection(_connectionString);
-            }
-        }
-        
-        public GenericRepo(IConfiguration configuration)
-        {
-            _connectionString = configuration.GetConnectionString("HPDBConnectionString");
+            _dbConnection = connection;
         }
         
         public async Task<IEnumerable<T>> GetAllAsync(string sql)
